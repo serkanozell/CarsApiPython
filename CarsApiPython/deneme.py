@@ -96,7 +96,7 @@ def takeAllMetots():
         time.sleep(4)
         carList = {}
         carList[0] = getCarDetails()
-        for i in range(3) : 
+        for i in range(47) : 
             try:
                 driver.find_element(By.CLASS_NAME,"srp-carousel-next-link").click() 
             except :

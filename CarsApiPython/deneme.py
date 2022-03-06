@@ -74,23 +74,20 @@ def takeAllMetots():
 
         return
 
-
-
-
     info = dict()
     info["cars"] = []
     def getCarDetails():
         car = dict()
+        advert = driver.find_element_by_xpath("/html/body/section/div[5]/section/header/div[1]/h1").text
         price = driver.find_element_by_xpath("/html/body/section/div[5]/section/header/div[2]/span[1]").text
         detail = driver.find_element_by_class_name("fancy-description-list")
         carDetail = detail.text.split('\n') 
+        car["advert"]=advert
         car["carColor"] = carDetail[1]
         car["transmission"] = carDetail[11]
         car["price"] = price
         info["cars"].append(car)
         return info
-
-
 
     def collectCars():
 
@@ -98,7 +95,7 @@ def takeAllMetots():
         time.sleep(4)
         carList = {}
         carList[0] = getCarDetails()
-        for i in range(47) : 
+        for i in range(3) : 
             try:
                 driver.find_element(By.CLASS_NAME,"srp-carousel-next-link").click() 
             except :
@@ -126,6 +123,10 @@ def takeAllMetots():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
 #app = Flask(__name__)
 
 #@app.route('/cars/list',methods=['GET'])

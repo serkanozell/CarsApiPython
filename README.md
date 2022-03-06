@@ -3,6 +3,8 @@
 
 apiden istek atmak için aşağıdaki URL'i kullanabilirsiniz
 http://localhost:5000/cars/list?year=2020&year=2020&trans=automatic&brand=bmw
+parametreler yukarıdaki şekilde değiştirilerek kullanılabilir
+
 
 yıl parametresi farklı girilse dahi ilk girilen yılı alır.
 

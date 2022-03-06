@@ -37,24 +37,25 @@ def takeAllMetots():
         return
     def setTransmission(trans):
         driver.find_element(By.ID, "trigger_transmissions").click()
-        time.sleep(3)
+        time.sleep(4)
         transmission = driver.find_element(by=By.ID,value="panel_transmissions")
-        time.sleep(3)
+        time.sleep(4)
         transmissionList = transmission.find_elements(by=By.CLASS_NAME,value="sds-checkbox")
-        time.sleep(3)
+        time.sleep(4)
         for t in range(len(transmissionList)):
             value = transmissionList[t].find_element(by=By.CLASS_NAME,value="sds-input")
             value = value.get_attribute('value')
             if value == trans.lower():
                 label = transmissionList[t].find_element(by=By.CLASS_NAME,value="sds-label")
-                time.sleep(3)
+                time.sleep(4)
                 label.click()
-                time.sleep(3)
+                time.sleep(4)
 
         return
 
     def chooseBrand(brandName):
         brandList = Select(driver.find_element(By.ID,"make_select")).select_by_value(str(brandName))
+        time.sleep(4)
         return
     def setColor(colorName) : 
         driver.find_element(By.ID,"trigger_exterior_colors").click()
@@ -68,9 +69,9 @@ def takeAllMetots():
             value = value.get_attribute('value')
             if value == colorName.lower():
                 label = colorList[c].find_element(by=By.CLASS_NAME,value="sds-label")
-                time.sleep(3)
+                time.sleep(4)
                 label.click()
-                time.sleep(3)
+                time.sleep(4)
 
         return
 
@@ -118,7 +119,7 @@ def takeAllMetots():
         setColor(color)   
     collectCars()
     #carList = collectCars()
-    time.sleep(3)
+    time.sleep(4)
     return info
 
 if __name__ == '__main__':

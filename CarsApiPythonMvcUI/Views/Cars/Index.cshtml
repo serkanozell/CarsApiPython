@@ -1,0 +1,59 @@
+﻿
+
+@using CarsApiPythonMvcUI.Models
+@model Car
+<div class="form">
+    <div class="form-group row">
+        @using (Html.BeginForm("Index", "Cars", FormMethod.Post))
+        {
+            <div class="col-2">
+                @Html.Label("Brand")
+                @Html.TextBoxFor(c => c.Brand)
+            </div>
+            <div class="col-2">
+                @Html.Label("Color")
+                @Html.TextBoxFor(c => c.Color)
+            </div>
+            <div class="col-2">
+                @Html.Label("Transmission")
+                @Html.TextBoxFor(c => c.Transmission)
+            </div>
+            <div class="col-2">
+                @Html.Label("Year")
+                @Html.TextBoxFor(c => c.Year)
+            </div>
+            <div class="col-4">
+                <input type="submit" value="List Cars" />
+            </div>
+         }
+    </div>
+</div>
+<!--<table>
+
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Transmission</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            @Html.BeginForm()
+            {
+            }
+        </tr>
+    </thead>-->
+@*<tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Advert</th>
+                <th>@item.Brand</th>
+                <th>@item.Price</th>
+                <th>@item.Color</th>
+                <th>@item.Transmission</th>
+                <th>@item.Year</th>
+            </tr>
+        }
+    </tbody>*@
+<!--</table>-->

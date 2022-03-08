@@ -82,11 +82,15 @@ def takeAllMetots():
         advert = driver.find_element_by_xpath("/html/body/section/div[5]/section/header/div[1]/h1").text
         price = driver.find_element_by_xpath("/html/body/section/div[5]/section/header/div[2]/span[1]").text
         detail = driver.find_element_by_class_name("fancy-description-list")
+        advertDetail=driver.find_element_by_xpath("/html/body/section/div[5]/section/header/div[1]/h1").text
         carDetail = detail.text.split('\n') 
-        car["advert"]=advert
+        advertDetail2 = advertDetail.split(' ')
+        car["advert"] = advert
+        car["brand"] = advertDetail2[1]
         car["carColor"] = carDetail[1]
         car["transmission"] = carDetail[11]
         car["price"] = price
+        car["year"]=advertDetail2[0]
         info["cars"].append(car)
         return info
 
@@ -96,7 +100,7 @@ def takeAllMetots():
         time.sleep(4)
         carList = {}
         carList[0] = getCarDetails()
-        for i in range(47) : 
+        for i in range(2) : 
             try:
                 driver.find_element(By.CLASS_NAME,"srp-carousel-next-link").click() 
             except :
@@ -112,14 +116,14 @@ def takeAllMetots():
     if year != None:
         selectBothYearRange(year)
     brand = request.args.get('brand')
-    if brand!=None:
+    if brand != None:
         chooseBrand(brand)
     color = request.args.get('color')
-    if color!=None:
+    if color != None:
         setColor(color)   
     collectCars()
     #carList = collectCars()
-    time.sleep(4)
+    time.sleep(2)
     return info
 
 if __name__ == '__main__':
